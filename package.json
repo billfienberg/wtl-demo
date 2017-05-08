@@ -1,0 +1,27 @@
+{
+  "name": "google-map-react-example",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.7.0"
+  },
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "google-map-react": "^0.21.3",
+    "isomorphic-fetch": "^2.2.1",
+    "node-uuid": "^1.4.7",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
+    "react-pure-render": "^1.0.2",
+    "react-redux": "^5.0.0",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.8.1",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

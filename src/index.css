@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.DayTabList {
+  height: 4rem;
+  display: flex;
+  overflow-x: scroll;
+  align-items: stretch;
+  background-color: #311D00;
+}
+
+.DayTab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 25%;
+  color: white;
+}
+
+.SelectedDayTab {
+  border-bottom: 5px solid #FF3C00;
+  padding-top: 5px;
+}
+
+.DayTab:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
