@@ -1,7 +1,7 @@
 # Where To Laugh Demo
 
 ### Link
-http://wheretolaugh-demo.surge.sh/s
+http://wheretolaugh-demo.surge.sh/
 
 ### Description
 This is a demo for a project to help people find local, independent comedy shows.
