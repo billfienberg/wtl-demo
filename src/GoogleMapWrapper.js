@@ -7,7 +7,7 @@ const EventMarker = ({ lat, lng }) => (
     lng={lng}
     style={{
       border: "1px solid black",
-      backgroundColor: "red",
+      backgroundColor: "#FF3C00",
       height: "5px",
       width: "5px",
       borderRadius: "50%",
