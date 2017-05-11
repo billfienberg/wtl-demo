@@ -3,8 +3,9 @@ import DayTabList from "./DayTabList";
 
 export const getDays = events => {
   const totalDays = events.map(event => event.showstarttime.slice(0, 10));
+  const today = new Date().toJSON().slice(0, 10);
   const uniqueDays = totalDays
-    .filter((v, i) => totalDays.indexOf(v) === i)
+    .filter((el, index) => totalDays.indexOf(el) === index && el >= today)
     .sort();
   return uniqueDays;
 };

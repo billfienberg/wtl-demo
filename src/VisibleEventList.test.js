@@ -29,12 +29,6 @@ it("asserts that venue latitude is greater than or equal to (North of) the SE ma
     venuelongitude: -83.0124675,
   };
 
-  // ~5-block radius in Columbus around The Shrunken Head
-  const bounds = {
-    nw: { lat: 39.98827754, lng: -83.01548695 },
-    se: { lat: 39.98549906, lng: -83.00953245 },
-  };
-
   expect(event.venuelatitude).toEqual(39.9872237);
   expect(event.venuelatitude).toBeGreaterThanOrEqual(bounds.se.lat);
 });
@@ -44,12 +38,6 @@ it("asserts that venue latitude is less than or equal to (South of) the NW map b
     venuename: `Shrunken Head`,
     venuelatitude: 39.9872237,
     venuelongitude: -83.0124675,
-  };
-
-  // ~5-block radius in Columbus around The Shrunken Head
-  const bounds = {
-    nw: { lat: 39.98827754, lng: -83.01548695 },
-    se: { lat: 39.98549906, lng: -83.00953245 },
   };
 
   expect(event.venuelatitude).toEqual(39.9872237);
@@ -63,12 +51,6 @@ it("asserts that venue longitude is less than or equal to (West of) the SE map b
     venuelongitude: -83.0124675,
   };
 
-  // ~5-block radius in Columbus around The Shrunken Head
-  const bounds = {
-    nw: { lat: 39.98827754, lng: -83.01548695 },
-    se: { lat: 39.98549906, lng: -83.00953245 },
-  };
-
   expect(event.venuelongitude).toEqual(-83.0124675);
   expect(event.venuelongitude).toBeLessThanOrEqual(bounds.se.lng);
 });
@@ -80,12 +62,6 @@ it("asserts that venue longitude is greater than or equal to (East of) the NW ma
     venuelongitude: -83.0124675,
   };
 
-  // ~5-block radius in Columbus around The Shrunken Head
-  const bounds = {
-    nw: { lat: 39.98827754, lng: -83.01548695 },
-    se: { lat: 39.98549906, lng: -83.00953245 },
-  };
-
   expect(event.venuelongitude).toEqual(-83.0124675);
   expect(event.venuelongitude).toBeGreaterThanOrEqual(bounds.nw.lng);
 });
@@ -94,7 +70,7 @@ it("filters events by latitudes North of the SE map boundary", () => {
   const copyOfEvents = sampleEvents.slice();
   const result = copyOfEvents.filter(e => e.venuelatitude >= bounds.se.lat);
 
-  expect(result.length).toEqual(43);
+  expect(result.length).toEqual(44);
 });
 
 it("filters events by latitudes South of the NW map boundary", () => {
@@ -108,7 +84,7 @@ it("filters events by longitudes West of the SE map boundary", () => {
   const copyOfEvents = sampleEvents.slice();
   const result = copyOfEvents.filter(e => e.venuelongitude >= bounds.se.lng);
 
-  expect(result.length).toEqual(27);
+  expect(result.length).toEqual(28);
 });
 
 it("filters events by longitudes East of the NW map boundary", () => {
