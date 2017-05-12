@@ -29,18 +29,19 @@ export const getDayOfOldestEvent = events => {
 };
 
 export const getDayOfYoungestEvent = events => {
-  const totalDays = events.map(event => event.date).sort();
-  return totalDays[totalDays.length - 1];
+  const uniqueDays = getUniqueDays(events);
+  const youngestDay = uniqueDays[uniqueDays.length - 1];
+  return youngestDay;
 };
 
 export const getOldestAndYoungestEventDays = events => {
-  const totalDays = events.map(event => event.date).sort();
-  return [totalDays[0], totalDays[totalDays.length - 1]];
+  const uniqueDays = getUniqueDays(events);
+  return [uniqueDays[0], uniqueDays[uniqueDays.length - 1]];
 };
 
 const mapStateToProps = state => {
   return {
-    days: getUniqueDays(state.events.items),
+    days: getPresentAndFutureDays(state.events.items),
     selectedDate: state.selectedDate,
   };
 };
