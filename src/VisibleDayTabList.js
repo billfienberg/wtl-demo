@@ -2,11 +2,17 @@ import { connect } from "react-redux";
 import DayTabList from "./DayTabList";
 
 export const getDays = events => {
-  const totalDays = events.map(event => event.showstarttime.slice(0, 10));
+  const days = {};
   const today = new Date().toJSON().slice(0, 10);
-  const uniqueDays = totalDays
-    .filter((el, index) => totalDays.indexOf(el) === index && el >= today)
-    .sort();
+  events.forEach(event => {
+    const date = event.showstarttime.slice(0, 10);
+    // filter out events with dates in the past
+    if (date >= today && !days[date]) {
+      days[date] = date;
+    }
+  });
+
+  const uniqueDays = Object.keys(days).sort();
   return uniqueDays;
 };
 
