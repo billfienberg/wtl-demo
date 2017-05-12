@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import DayTabList from "./DayTabList";
+import ActionTypes from "./actions/constants/ActionTypes";
 
 export const getUniqueDays = events => {
   const days = {};
@@ -49,7 +50,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onDayTabClick: date => {
-      dispatch({ type: "SELECT_DATE", selectedDate: date });
+      dispatch({ type: ActionTypes.SELECT_DATE, selectedDate: date });
     },
   };
 };
