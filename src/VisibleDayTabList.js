@@ -1,13 +1,12 @@
 import { connect } from "react-redux";
 import DayTabList from "./DayTabList";
 
-export const getDays = events => {
+export const getUniqueDays = events => {
   const days = {};
-  const today = new Date().toJSON().slice(0, 10);
   events.forEach(event => {
     const date = event.showstarttime.slice(0, 10);
     // filter out events with dates in the past
-    if (date >= today && !days[date]) {
+    if (!days[date]) {
       days[date] = date;
     }
   });
@@ -16,9 +15,17 @@ export const getDays = events => {
   return uniqueDays;
 };
 
+export const getPresentAndFutureDays = events => {
+  const uniqueDays = getUniqueDays(events);
+  const today = new Date().toJSON().slice(0, 10);
+  const presentAndFutureDays = uniqueDays.filter(el => el >= today);
+  return presentAndFutureDays;
+};
+
 export const getDayOfOldestEvent = events => {
-  const totalDays = events.map(event => event.date).sort();
-  return totalDays[0];
+  const uniqueDays = getUniqueDays(events);
+  const oldestDay = uniqueDays[0];
+  return oldestDay;
 };
 
 export const getDayOfYoungestEvent = events => {
@@ -33,7 +40,7 @@ export const getOldestAndYoungestEventDays = events => {
 
 const mapStateToProps = state => {
   return {
-    days: getDays(state.events.items),
+    days: getUniqueDays(state.events.items),
     selectedDate: state.selectedDate,
   };
 };
