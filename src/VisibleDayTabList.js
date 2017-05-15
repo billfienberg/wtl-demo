@@ -6,10 +6,7 @@ export const getUniqueDays = events => {
   const days = {};
   events.forEach(event => {
     const date = event.showstarttime.slice(0, 10);
-    // filter out events with dates in the past
-    if (!days[date]) {
-      days[date] = date;
-    }
+    days[date] = date;
   });
 
   const uniqueDays = Object.keys(days).sort();
